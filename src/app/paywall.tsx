@@ -17,7 +17,7 @@ export default function PaywallScreen() {
   }, [selectedPlan]);
 
   const secondaryLabel = useMemo(() => {
-    if (selectedPlan === "yearly") return "Экономия ~45% по сравнению с Monthly";
+    if (selectedPlan === "yearly") return "Экономия ~45% по сравнению с Месячным";
     return "Отмена в любой момент";
   }, [selectedPlan]);
 
@@ -61,7 +61,7 @@ export default function PaywallScreen() {
             <Text style={styles.sectionTitle}>Выбери тариф</Text>
 
             <PlanCard
-              title="Monthly"
+              title="Месячный"
               price="299 ₽"
               period="в месяц"
               helper="Гибко: можно отменить в любой момент"
@@ -70,11 +70,11 @@ export default function PaywallScreen() {
             />
 
             <PlanCard
-              title="Yearly"
+              title="Годовой"
               price="1 990 ₽"
               period="в год"
-              helper="Best Value — выгоднее и спокойнее"
-              badge="Best Value"
+              helper="Выгодно — заметно лучше по цене"
+              badge="Выгодно"
               selected={selectedPlan === "yearly"}
               onPress={() => setSelectedPlan("yearly")}
               emphasize
@@ -223,16 +223,12 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   planCardEmphasize: {
-    backgroundColor: "rgba(110,139,255,0.10)",
-    borderColor: "rgba(110,139,255,0.35)",
+    backgroundColor: "rgba(110,139,255,0.08)",
+    borderColor: "rgba(110,139,255,0.28)",
   },
   planCardSelected: {
-    borderColor: "rgba(234,240,255,0.30)",
-    shadowColor: "#6E8BFF",
-    shadowOpacity: 0.25,
-    shadowRadius: 14,
-    shadowOffset: { width: 0, height: 6 },
-    elevation: 6,
+    borderColor: "rgba(234,240,255,0.24)",
+    backgroundColor: "rgba(255,255,255,0.08)",
   },
   planCardPressed: { opacity: 0.96, transform: [{ scale: 0.995 }] },
   planTopRow: { flexDirection: "row", alignItems: "center" },

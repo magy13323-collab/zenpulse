@@ -18,44 +18,44 @@ type Mood = "calm" | "stress" | "tired";
 const MEDITATIONS: Meditation[] = [
   {
     id: "m1",
-    title: "5-minute Reset",
+    title: "5-минутная перезагрузка",
     description: "Сброс напряжения и мягкий фокус за несколько дыханий.",
-    duration: "5 min",
+    duration: "5 мин",
     isPremium: false,
   },
   {
     id: "m2",
-    title: "Calm Body Scan",
+    title: "Спокойный скан тела",
     description: "Медленный скан тела для спокойствия и расслабления.",
-    duration: "10 min",
+    duration: "10 мин",
     isPremium: true,
   },
   {
     id: "m3",
-    title: "Morning Clarity",
+    title: "Ясное утро",
     description: "Лёгкая практика, чтобы начать день яснее и мягче.",
-    duration: "7 min",
+    duration: "7 мин",
     isPremium: false,
   },
   {
     id: "m4",
-    title: "Deep Sleep Wind Down",
+    title: "Подготовка к глубокому сну",
     description: "Тихая подготовка ко сну с плавным замедлением.",
-    duration: "12 min",
+    duration: "12 мин",
     isPremium: true,
   },
   {
     id: "m5",
-    title: "Anxiety Ease",
+    title: "Снижение тревоги",
     description: "Заземление и спокойствие, когда мысли ускоряются.",
-    duration: "8 min",
+    duration: "8 мин",
     isPremium: true,
   },
   {
     id: "m6",
-    title: "Focus Sprint",
+    title: "Быстрая настройка фокуса",
     description: "Короткая настройка внимания перед задачей.",
-    duration: "6 min",
+    duration: "6 мин",
     isPremium: false,
   },
 ];
@@ -81,7 +81,7 @@ export default function Index() {
   const headerDescription = useMemo(() => {
     if (isSubscribed === null) return "Загружаем…";
     if (isSubscribed) return "Твои практики доступны полностью. Выбирай и начинай.";
-    return "Часть практик Premium — открой доступ, когда будешь готов.";
+    return "Часть практик Премиум — открой доступ, когда будешь готов.";
   }, [isSubscribed]);
 
   const onPressMeditation = (item: Meditation) => {
@@ -91,7 +91,7 @@ export default function Index() {
       router.push("/paywall");
       return;
     }
-    setComingSoon(`Coming soon: ${item.title}`);
+    setComingSoon(`Скоро будет: ${item.title}`);
   };
 
   const buildMoodPrompt = (mood: Mood): string => {
@@ -153,7 +153,7 @@ export default function Index() {
         showsVerticalScrollIndicator={false}
         ListHeaderComponent={
           <View style={styles.header}>
-            <Text style={styles.title}>Meditations</Text>
+            <Text style={styles.title}>Медитации</Text>
             <Text style={styles.subtitle}>{headerDescription}</Text>
 
             <View style={styles.aiCard}>
@@ -283,11 +283,11 @@ export default function Index() {
                     </View>
                     {item.isPremium ? (
                       <View style={[styles.pill, styles.pillPremium]}>
-                        <Text style={styles.pillText}>Premium</Text>
+                        <Text style={styles.pillText}>Премиум</Text>
                       </View>
                     ) : (
                       <View style={[styles.pill, styles.pillFree]}>
-                        <Text style={styles.pillText}>Free</Text>
+                        <Text style={styles.pillText}>Бесплатно</Text>
                       </View>
                     )}
                   </View>
@@ -302,11 +302,11 @@ export default function Index() {
 
               {locked ? (
                 <View style={styles.lockRow}>
-                  <Text style={styles.lockText}>Locked</Text>
-                  <Text style={styles.lockHint}>Открыть через Premium</Text>
+                  <Text style={styles.lockText}>Заблокировано</Text>
+                  <Text style={styles.lockHint}>Открыть через Премиум</Text>
                 </View>
               ) : (
-                <Text style={styles.ctaText}>Tap to start (Coming soon)</Text>
+                <Text style={styles.ctaText}>Нажми, чтобы открыть - скоро будет</Text>
               )}
             </Pressable>
           );
