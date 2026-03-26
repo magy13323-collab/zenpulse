@@ -1,56 +1,56 @@
-# Welcome to your Expo app 👋
+# ZenPulse - AI Meditation App Prototype
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Короткое описание проекта
 
-## Get started
+Это прототип мобильного приложения для медитаций, собранный на React Native + Expo. В приложении реализованы экран подписки, главный экран с медитациями, блокировка premium-контента и AI-фича "Настрой дня" с моковой генерацией текста.
 
-1. Install dependencies
+## Стек
+
+- React Native
+- Expo
+- TypeScript
+- Expo Router
+- AsyncStorage
+- expo-linear-gradient
+
+## Реализованный функционал
+
+- Экран подписки Paywall
+- Выбор тарифа: месячный / годовой
+- Визуальное выделение выгодного тарифа
+- Кнопка "Попробовать бесплатно", которая имитирует успешную покупку
+- Главный экран с карточками медитаций
+- Логика блокировки premium-контента через флаг `isSubscribed`
+- AI-блок "Настрой дня" с выбором настроения и моковой генерацией текста
+- SafeArea / mobile-first layout / ScrollView и FlatList для устойчивости на маленьких экранах
+
+## Как запустить проект
+
+1. Установить зависимости:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. Запустить проект:
 
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+3. Нажать `a` для запуска на Android Emulator.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Как ИИ использовался в разработке
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- генерация каркаса экранов
+- доработка paywall
+- доработка логики блокировки контента
+- генерация AI mood feature
+- исправление мобильной верстки
+- полировка текста и UI
 
-## Get a fresh project
+## Ответ на контрольный вопрос из тестового
 
-When you're ready, run:
+Хуже всего ИИ справляется с плотными горизонтальными блоками на маленьких экранах, строками с несколькими бейджами и метками, safe area и вертикальным пространством, Android-специфичными тенями и selected states, смешением языков в интерфейсе и кейсами, где в коде все выглядит нормально, но в эмуляторе визуально криво.
 
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Чтобы это контролировать, я вручную проверял экраны в эмуляторе, просил переносить плотные элементы на отдельные строки, добавлял `SafeAreaView`, `ScrollView` и `FlatList`, убирал агрессивные тени и glow-эффекты, отдельно проверял сценарии locked / unlocked, а также доводил тексты до единого языка и тона интерфейса.
